@@ -14,6 +14,16 @@ app.use(bodyParser.urlencoded({
 app.get("/",function(req,res){
     res.render("home");
 });
+app.get("/login",function(req,res){
+    res.redirect("/");
+});
+app.get("/register",function(req,res){
+    res.render("register");
+});
+
+app.get("/success",function(req,res){
+    res.render("success");
+});
 
 // ---------------------------------------------
 

@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="main-box">
+
+        <div class="login-box">
+
+            <div class="heading-box">
+                <h1 class="company"><img class="logo" src="images/logo.png">Starnext</h1>
+            </div>
+            <div class="choice-box">
+                <p class="choice-buttons">
+                    <a class="btn btn-secondary login" href="/login" role="button">Login</a>
+                    <a class="btn btn-secondary register active" href="/register" role="button">Register</a>
+                </p>
+            </div>
+            <div class="login-form">
+                <div class="email-form">
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email"  name="username" placeholder="eg:abc@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" >
+                        </div>
+                        <button type="submit" class="btn btn-dark login-button">Register</button>
+                    </form>
+                    <p>Already have an account? <a href="/">Login in</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include('partials/footer') %>
