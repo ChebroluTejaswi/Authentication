@@ -92,11 +92,11 @@ input{
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: transparent;
+  background-color: transparent !important;
   border-bottom: 2px solid #5271FF ;
 }
 input[type="email"], input[type="password"] {
-    background: transparent;
+    background: transparent ;
     color: white;
 }
 input:focus {
