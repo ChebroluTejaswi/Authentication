@@ -21,7 +21,6 @@ const userSchema= new mongoose.Schema({
     email:String,
     password: String
 });
-const secret=process.env.SECRET_KEY; // key used for encryption
 
 // Model
 const User=new mongoose.model("User",userSchema);
@@ -70,27 +69,44 @@ app.get("/register",function(req,res){
     res.render("register");
 });
 app.post("/register",function(req,res){
-    bcrypt.hash(req.body.password,saltRounds,function(err,hash){
-        const newUser = new User({
-            email: req.body.username,
-            password: hash
-        });
-        newUser.save(function(err){
-            if(err)
+
+    User.findOne({email: req.body.username},function(err,foundUser){
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            if(foundUser)
             {
-                console.log(err);
+                res.redirect("/register");
             }
             else
             {
-                res.render("success");
+                bcrypt.hash(req.body.password,saltRounds,function(err,hash){
+                    const newUser = new User({
+                        email: req.body.username,
+                        password: hash
+                    });
+                    newUser.save(function(err){
+                        if(err)
+                        {
+                            console.log(err);
+                        }
+                        else
+                        {
+                            res.render("success");
+                        }
+                    });
+                });
             }
-        });
+        }
     });
 });
 
 app.get("/logout",function(req,res){
     res.redirect("/");
-})
+});
 // ---------------------------------------------
 
 app.listen(3000, function() {
