@@ -12,13 +12,14 @@ A project to demonstrate authentication through the use of a simple and attracti
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongoose/mongoose.png"></code>
 </p>
+
 ## About the project
-I used four levels of security:
-1 level: Login access is restricted only to authenticated users.
-2nd level: Encrypted the password before storing it in the database using the moongoose-encryption package (AES encryption technique is used).
-To ensure that the secret key is not publicly displayed, it should be stored in the.env file.
-Level 3: Rather than encrypting the password, the Hash technique is used here. Hashing increases the security of our data because reversing the generated hash is nearly impossible.
-4 level: When two identical words are passed to a hash function, the same hash code is generated. As a result, I used the salting technique to ensure that two users have different hash codes even if they have the same password.
+I used four levels of security:<br>
+<b>Level 1:</b> Login access is restricted only to authenticated users.<br>
+<b>Level 2:</b> Encrypted the password before storing it in the database using the moongoose-encryption package (AES encryption technique is used).<br>
+To ensure that the secret key is not publicly displayed, it should be stored in the.env file.<br>
+<b>Level 3:</b> Rather than encrypting the password, the Hash technique is used here. Hashing increases the security of our data because reversing the generated hash is nearly impossible.<br>
+<b>Level 4:</b> When two identical words are passed to a hash function, the same hash code is generated.<br> As a result, I used the salting technique to ensure that two users have different hash codes even if they have the same password.
 
 ## Pre-requisites for installation
 The data will be stored in Mongo DB (local storage/ Cloud Atlas).<br>
