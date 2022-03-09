@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -19,7 +20,7 @@ const userSchema= new mongoose.Schema({
     email:String,
     password: String
 });
-const secret="BeautifulLoginPage"; // key used for encryption
+const secret=process.env.SECRET_KEY; // key used for encryption
 userSchema.plugin(encrypt,{secret:secret,encryptedFields:["password"]}); // Encryption happens here (only the password of user gets encrypted)
 
 // Model
